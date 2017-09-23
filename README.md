@@ -101,6 +101,20 @@ You may want to get the latest code somehow.
 ```
 git pull
 
+root@ubuntu:~/dockerstudy# git pull
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 5 (delta 1), reused 5 (delta 1), pack-reused 0
+Unpacking objects: 100% (5/5), done.
+From github.com:qijunbo/dockerstudy
+   529dbfc..089d33e  master     -> origin/master
+Updating 529dbfc..089d33e
+Fast-forward
+ README.md           |  11 ++++++++++-
+ pictures/sshurl.jpg | Bin 0 -> 54698 bytes
+ 2 files changed, 10 insertions(+), 1 deletion(-)
+ create mode 100644 pictures/sshurl.jpg
+
 ```
 
 
