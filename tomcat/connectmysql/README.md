@@ -33,23 +33,7 @@ This README would normally document whatever steps are necessary to get your app
 
 Study Notes:
 --
-the script ** setDBurl.sh ** doesn't work, but I learned this things.
-- About Linux Command **sed**
-
-**The difference between " and ' **
-
-The place holder {mysqldburl} will be replaced with the output of **uname**
-
-```
-sed  "s/{mysqldburl}/`uname`/g" ./application-prod.yml.ftl
-```
-
-The place holder {mysqldburl} will be replaced with the string `uname`
-
-```
-sed  's/{mysqldburl}/`uname`/g' ./application-prod.yml.ftl
-```
-
+- test connectivity from mysql container.
 
 
 
