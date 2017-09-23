@@ -3,6 +3,23 @@ all kinds of docker  images design
 
 # Index of Content
 
+
+# Question 1
+
+Why some exit while others keep running when you run containers using follwing command.
+
+```
+docker run -d  container_name 
+```
+那是因为
+
+```
+CMD ["commands", "parm"]
+```
+
+有的执行完了就推出了, 有的长期运行,永不停歇.
+
+
 # How to add github ssh key
 - Create RSA key pare on you own pc
 		
