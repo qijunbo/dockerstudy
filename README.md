@@ -5,6 +5,7 @@ all kinds of docker  images design
 
 # How to add github ssh key
 - Create RSA key pare on you own pc
+		
 ```
 ssh-keygen
 
@@ -34,9 +35,13 @@ cd ~/.ssh
 
 root@ubuntu:~/.ssh# cat id_rsa.pub
 ```
+
 - Copy the content of id_rsa.pub to [https://github.com/settings/keys](https://github.com/settings/keys)
 1. Click the "New ssh key" button on the top-right corner.
-2. Paste what you copy from 'cat id_rsa.put' command.
+
+![clone with ssh](pictures/sshurl.jpg)
+
+2. Paste what you copy from 'cat id_rsa.put' command, and save.
 
 # How to get and push code from and to github.
 - Get 
@@ -46,6 +51,7 @@ git clone git@github.com:qijunbo/dockerstudy.git
 ```
 
 - Put
+
 ```
 ## add the file you want.
 git add README.md
@@ -89,8 +95,11 @@ Branch master set up to track remote branch master from origin.
 
 ```
 - Update
+
 You may want to get the latest code somehow.
+
 ```
+git pull
 
 ```
 
