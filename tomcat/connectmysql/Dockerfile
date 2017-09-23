@@ -1,2 +1,2 @@
 FROM tomcat
-COPY customer.war /usr/local/tomcat/webapps/
+COPY customer /usr/local/tomcat/webapps/customer
