@@ -70,8 +70,30 @@ to set your account's default identity.
 Omit --global to set the identity only in this repository.
 
 fatal: unable to auto-detect email address (got 'root@ubuntu.(none)')
-root@ubuntu:~/dockerstudy# git config --global user.email "junboqi@foxmail.com"
 ```
+try this, and then you did it. 
+```
+root@ubuntu:~/dockerstudy# git config --global user.email "junboqi@foxmail.com"
+
+root@ubuntu:~/dockerstudy# git commit -m "add readme"
+[master f819abb] add readme
+ 1 file changed, 82 insertions(+)
+root@ubuntu:~/dockerstudy# git push -u origin master
+Counting objects: 3, done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 1.17 KiB | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:qijunbo/dockerstudy.git
+   06532b0..f819abb  master -> master
+Branch master set up to track remote branch master from origin.
+
+```
+- Update
+You may want to get the latest code somehow.
+```
+
+```
+
 
 
 
