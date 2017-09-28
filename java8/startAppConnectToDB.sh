@@ -11,14 +11,16 @@ if [ -z "${db}" ]; then
    exit -1 ;
 fi
 
-mkdri -p /root/dockerstudy/tomcat/connectmysql/logs
+mkdir -p /opt/springdata/${name}/
+cp -f customer.jar /opt/springdata/${name}/
+cp -f application* /opt/springdata/${name}/
+
+docker stop ${name} 
 docker container prune -f
 docker run --name ${name} -d \
     --link ${db}:mysql \
-    -v /root/dockerstudy/tomcat/connectmysql/logs:/usr/local/tomcat/logs  -P \
-	 qijunbo/tomcatwithdb
-docker ps -a 
-echo 	 
+    -v /opt/springdata/${name}:/root/webapp -P \
+	 qijunbo/springdata
 docker port ${name}
 
 

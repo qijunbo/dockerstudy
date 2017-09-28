@@ -11,10 +11,14 @@ if [ -z "${db}" ]; then
    exit -1 ;
 fi
 
+mkdir -p /opt/springdata/${name}/
+cp -f customer.war /opt/springdata/${name}/
+
+docker stop ${name} 
 docker container prune -f
 docker run --name ${name} -d \
     --link ${db}:mysql \
-    -v /root/dockerstudy/webapp:/root/webapp -P \
+    -v /opt/springdata/${name}:/root/webapp -P \
 	 qijunbo/springdata
 docker port ${name}
 
