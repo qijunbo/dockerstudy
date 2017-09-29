@@ -5,8 +5,7 @@ if [ -z "${name}" ]; then
    exit -1 ;
 fi
 ip=`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ${name}`
-port=`docker inspect --format='{{(index (index .NetworkSettings.Ports "3306/tcp") 0).HostPort}}' ${name}`
-echo "jdbc:mysql://${ip}:${port}/dbs_dev?useSSL=false"
+echo "jdbc:mysql://${ip}:3306/customer?useSSL=false"
 
 
 

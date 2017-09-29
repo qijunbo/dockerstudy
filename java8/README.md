@@ -26,7 +26,9 @@ CMD  java -jar *.jar
 ```
 * Summary of set up
 
+执行 **rebuild.sh** 生成镜像. 然后run.
 ```
+./rebuild.sh   
 docker run --name you-app-name  -d  -v  /path/of/your/app:/root/webapp   -P  qijunbo/java:8
 ```
 
@@ -55,7 +57,9 @@ Deployment instructions
 
 if you app need a datasource in another docker container, use ** --link ** to get connected.
 
-** 你发现没有, 下面这句指令居然没有用(-p 或者 -P)做端口映射 **  也就是说这个容器从外面连不上,只能从里面连. 
+** 你发现没有, 下面这句指令居然没有用(-p 或者 -P)做端口映射 **  也就是说这个容器从外面连不上,只能从里面连.
+
+**经过验证** 下面这句不加(-P/-p)端口映射是没有意义的, 因为你无法访问你的app, **但是**, 启动的mysql容器是可以不加(-P/-p)端口映射, 用下面的方法**可以连接成功** .
 ```
 docker run --name you-app-name --link mysql-container:mysql -d  qijunbo/java:8
 
