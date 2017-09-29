@@ -20,7 +20,7 @@ docker container prune -f
 docker run --name ${name} -d \
     --link ${db}:mysql \
     -v /opt/springdata/${name}:/root/webapp -P \
-	 qijunbo/springdata
+	 qijunbo/java:8
 docker port ${name}
 
 
