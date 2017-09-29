@@ -25,7 +25,7 @@ skip-name-resolve
 lower_case_table_names = 1
 
 ```
-The mount the **file name** to  ** my.cnf** within the container, **It'seems crazy, but it really work with [mysql-docker](https://github.com/qijunbo/mysql-docker) [mysql  Ver 14.14 Distrib 5.7.19]
+The mount the **file name** to  ** my.cnf** within the container, ** It'seems crazy, but it really work with [mysql-docker](https://github.com/qijunbo/mysql-docker) [mysql  Ver 14.14 Distrib 5.7.19]
 
 ```
 docker run --name goodname -v /my/custom/docker.cnf:/etc/my.cnf -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:tag
