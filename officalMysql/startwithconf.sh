@@ -20,7 +20,7 @@ docker run --name ${name} \
     -v /opt/mysql/${name}/initsql:/docker-entrypoint-initdb.d \
     -v /opt/mysql/everyone/conf/docker.cnf:/etc/my.cnf \
     -e MYSQL_ROOT_PASSWORD=sunway123#  \
-    -d -p 3306:3306 mysql \
+    -d -P mysql \
     --character-set-server=utf8 --collation-server=utf8_general_ci 
 
 docker ps -a   
