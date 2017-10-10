@@ -19,7 +19,7 @@ docker stop ${name}
 docker container prune -f
 docker run --name ${name} -d \
     --link ${db}:mysql \
-    -v /opt/springdata/${name}:/root/webapp -P \
+    -v /opt/springdata/${name}:/usr/local/tomcat -P \
 	 qijunbo/java:8
 docker port ${name}
 
