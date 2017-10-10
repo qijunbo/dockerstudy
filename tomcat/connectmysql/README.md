@@ -1,40 +1,9 @@
-#MYSQL
-
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+这个容器的目的是吧web应用直接打到tomcat的webapps 下面, 不是war包的形式, 而是直接展开的文件夹.
+这样做的目的是方便从外部指定数据源等配置文件.
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
-
-
-Study Notes:
---
-- test connectivity from mysql container.
-
+不过这仍然不是best practice.   好的方法参考 [java8](https://github.com/qijunbo/dockerstudy/tree/master/java8)那个目录.
 
 
 

@@ -2,42 +2,12 @@
 
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+这是一个失败的中间产物,  因为之前容器之间联网, 会遇到各种奇奇怪怪的问题, 所以就把数据库和tomcat放到一个容器里面了,  其实还是没有解决根本问题.
 
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-* Download Tomcat 
-
-```
-wget http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.20/bin/apache-tomcat-8.5.20.tar.gz 
-makdir tomcat
-tar xvf apache-tomcat-8.5.20.tar.gz -C tomcat  --strip-components=1 
-```
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
-
-
-Study Notes:
+因为有的容器由于继承的"父容器" 本身不支持网络, 内部连个127.0.0.0的ip都没有,
+根本就无法用localhost 或者ip访问数据库, 所以这种做法本身就是不科学的.
+这是一个失败案例. 
+ 
 --
 - test connectivity from mysql container.
 
