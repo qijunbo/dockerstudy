@@ -97,3 +97,6 @@ Run ``` ./startapp.sh yourName ``` until the mysql db is initialized.  you can u
 
 After running this container,  you can get a url of the app,  copy the url and test it in browser.
 
+** 注意 ** 
+
+在 ``` startapp.sh ``` 里面, 获取ip地址的部分 ``` ip addr show ens33 ``` , 网络设备名字要根据机器的具体情况做修改, 一般物理机器是eth0, 所以要改成 ``` ip addr show eth0 ``` .
