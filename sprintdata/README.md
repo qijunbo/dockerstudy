@@ -2,7 +2,8 @@
 
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+这个是为了吧spring-boot可执行jar包容器化发布, 不过这个例子的Dockerfile还不完美,
+因为容器内部不支持linux的ip或者ifconfig指令, 不方便调试.
 
 ### What is this repository for? ###
 
