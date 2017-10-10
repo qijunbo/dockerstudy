@@ -100,3 +100,41 @@ After running this container,  you can get a url of the app,  copy the url and t
 ** 注意 ** 
 
 在 ``` startapp.sh ``` 里面, 获取ip地址的部分 ``` ip addr show ens33 ``` , 网络设备名字要根据机器的具体情况做修改, 一般物理机器是eth0, 所以要改成 ``` ip addr show eth0 ``` .
+
+
+Test
+-- 
+
+```
+./startmysql.sh  tony
+
+one minute later
+
+./startapp.sh tony
+
+root@ubuntu:~/docker/dockerstudy# docker ps -a
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+37388e6111f8        qijunbo/java:8      "/bin/sh -c 'java ..."   3 hours ago         Up 3 hours          0.0.0.0:32794->80/tcp, 0.0.0.0:32793->8080/tcp   apptony
+693c0dcbe878        mysql               "docker-entrypoint..."   3 hours ago         Up 3 hours          3306/tcp                                         dbtony
+
+root@ubuntu:~/docker/dockerstudy# docker exec -it dbtony bash
+root@693c0dcbe878:/# ping apptony
+PING apptony (172.18.0.3): 56 data bytes
+64 bytes from 172.18.0.3: icmp_seq=0 ttl=64 time=0.222 ms
+64 bytes from 172.18.0.3: icmp_seq=1 ttl=64 time=0.159 ms
+64 bytes from 172.18.0.3: icmp_seq=2 ttl=64 time=0.150 ms
+^C--- apptony ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 0.150/0.177/0.222/0.032 ms
+root@693c0dcbe878:/# exit
+exit
+root@ubuntu:~/docker/dockerstudy# docker exec -it apptony bash
+root@37388e6111f8:/usr/local/tomcat# ping dbtony
+PING dbtony (172.18.0.2): 56 data bytes
+64 bytes from 172.18.0.2: icmp_seq=0 ttl=64 time=0.064 ms
+64 bytes from 172.18.0.2: icmp_seq=1 ttl=64 time=0.117 ms
+^C--- dbtony ping statistics ---
+2 packets transmitted, 2 packets received, 0% packet loss
+round-trip min/avg/max/stddev = 0.064/0.090/0.117/0.027 ms
+
+```
