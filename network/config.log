@@ -1,1 +1,0 @@
-jdbc:mysql://172.20.0.2:3306/customer?useSSL=false

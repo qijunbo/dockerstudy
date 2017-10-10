@@ -9,7 +9,7 @@ fi
 docker stop app${name}
 docker container prune -f
 docker run --name app${name} -d \
-    -v /opt/mysql/${name}:/usr/local/tomcat -P \
+    -v /opt/myproject/${name}:/usr/local/tomcat -P \
     --net=network${name}\
         qijunbo/java:8
 docker port app${name}
