@@ -14,3 +14,6 @@ docker run --name app${name} -d \
         qijunbo/java:8
 docker port app${name}
 
+ip=`/sbin/ip addr show ens33|grep "inet "|grep -v 127.0.0.1|awk '{print $2}'`
+port=`docker inspect --format='{{(index (index .NetworkSettings.Ports "80/tcp") 0).HostPort}}' app${name}`
+echo "http://${ip%/*}:${port}"
