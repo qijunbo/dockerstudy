@@ -1,8 +1,18 @@
-
-
 Docker  REST API 使用指南
 --
 
+- Keywords:  container, daemon, runtime, rest api, http, https
+
+
+- Reference: 
+
+ https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option
+
+ http://0pointer.de/blog/projects/socket-activation.html
+
+ https://docs.docker.com/datacenter/ucp/2.2/reference/api/
+ 
+ 
 老外就是啰嗦, 尼玛本来简单几句就能说清楚的事情, 说了几页纸还把劳资说的晕头转向.
 
 - The Universal Control Plane API (UCP API)
@@ -39,4 +49,4 @@ systemctl stop docker
 
 - Verify
 
-然后你就可以验证了:   http://192.168.64.131:2376/containers/json   (这个也比较奇葩, 只会显示活着的容器, 死的, 退出的, 就看不见了.)
+然后你就可以验证了:   http://192.168.64.131:2376/containers/json   (这个也比较奇葩, 只会显示活着的容器, "死的"和"退出的", 就看不见了.)
