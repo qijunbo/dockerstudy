@@ -11,7 +11,7 @@ Docker  REST API 使用指南
  http://0pointer.de/blog/projects/socket-activation.html
 
  https://docs.docker.com/datacenter/ucp/2.2/reference/api/
- 
+ https://stackoverflow.com/questions/46108273/how-can-i-use-rest-api-to-interact-with-docker-engine
  
 老外就是啰嗦, 尼玛本来简单几句就能说清楚的事情, 说了几页纸还把劳资说的晕头转向.
 
