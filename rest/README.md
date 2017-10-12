@@ -27,18 +27,20 @@ https://docs.docker.com/datacenter/ucp/2.2/reference/api/
 
 比较奇葩的是, docker 默认是不开启REST API的服务的, 为毛呢?  因为他们根本没有提供安全性验证, 也就是说, 一旦打开了, 不用验证, 谁都可以调用. (你妹的).
 
-你可以用下面的指令打开 REST API 服务.  如果你喜欢看加长版的,(真他妈的啰嗦, 而且还让人看不懂), 点这里: https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option
+你可以用下面的指令打开 REST API 服务.  如果你喜欢看加长版的,(真他妈的啰嗦, 而且还让人看不懂), [点这里](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-socket-option) 
+
+这两条指令足够解决问题了.
 
 ```
 systemctl stop docker
-/usr/bin/dockerd  -H tcp://127.0.0.1:2376 -H unix:///var/run/docker.sock -H 192.168.64.131:2376 &
+/usr/bin/dockerd  -H tcp://127.0.0.1:2376 -H unix:///var/run/docker.sock -H  192.168.64.131:2376 &
 ```
 
 解释:  
 
-1.  -H  参数出现了3次,  说明可以同时以3种形式提供服务.  
-2.  执行这个玩意, 要先把服务停下, 然后再用后台运行的方式启动. (我也是醉了, 其实还有更好的方法, 把它做成一个服务. 我以后慢慢研究.) 
-3.  tcp://127.0.0.1:2376  前面的 tcp 可以省略, (真是多此一举)
+1.  -H  参数出现了3次,  说明可以同时以3种形式提供服务.  如果你机器有多个网卡,多个ip, 可以这样指定, 在特定的ip地址上监听, 保证安全性.
+2.  执行这个玩意, 要先把服务停下, 然后再用(&符号)后台运行的方式启动. (我也是醉了, 其实还有更好的方法, 把它做成一个服务. 我以后慢慢研究.) 
+3.  tcp://127.0.0.1:2376  前面的 ``` tcp:// ``` 可以省略. 
 
 
 用0.0.0.0表示在所有的ip地址上监听. 不过这样太不安全, 别这么搞.
