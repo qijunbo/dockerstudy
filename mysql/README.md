@@ -29,7 +29,7 @@ Directly Use
 
 MySql 容器预置了参数, 允许你在启动容器的时候传入数据库root用户的初始密码. 如下: 
 
-````
+```
 mkdir -p  /root/data/mysql
 
 docker run --name mysql -e MYSQL_ROOT_PASSWORD=sunway123# -d -p 3306:3306 -v /root/data/mysql:/var/lib/mysql mysql
