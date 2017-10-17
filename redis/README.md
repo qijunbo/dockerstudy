@@ -1,6 +1,11 @@
 Redis Quick Start Guide
 ==
 
+More
+--
+- [Redis Installation](install.md)
+
+
 How to use this image
 --
 
