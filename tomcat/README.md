@@ -3,6 +3,9 @@ Tomcat Doker Image Quick Guide
 
 Start
 --
+
+Save this file as  start.sh
+
 ```
 #!/bin/sh
 name=$1
@@ -27,6 +30,8 @@ docker run --name ${name} -d \
 	 tomcat
 docker ps -a 
 ```
+
+Run ``` ./start.sh webapp  your-db-container-name ``` 
 
 Reference
 --
