@@ -6,7 +6,7 @@ Installation
 wget http://download.redis.io/releases/redis-4.0.2.tar.gz
 tar xzf redis-4.0.2.tar.gz
 cd redis-4.0.2
-make MALLOC=libc
+make install MALLOC=libc
 ```
 
 
@@ -51,12 +51,14 @@ Start The Server
 ==
 don't forget to add the configure file "redis.conf" as a parameter . 
 ```
-src/redis-server  /path/to/redis.conf &
+redis-server  /path/to/redis.conf &
 ```
 You can see something like this.
 
 ```
-[root@localhost src]# ./redis-server &
+cd ./src
+
+[root@localhost src]# redis-server redis.conf  &
 [1] 4453
 [root@localhost src]# 4453:C 16 Oct 19:16:59.823 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
 4453:C 16 Oct 19:16:59.823 # Redis version=4.0.2, bits=64, commit=00000000, modified=0, pid=4453, just started
