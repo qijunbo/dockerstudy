@@ -33,7 +33,7 @@ https://docs.docker.com/datacenter/ucp/2.2/reference/api/
 
 ```
 systemctl stop docker
-/usr/bin/dockerd  -H tcp://127.0.0.1:2376 -H unix:///var/run/docker.sock -H  192.168.64.131:2376 &
+nohup /usr/bin/dockerd  -H tcp://127.0.0.1:2376 -H unix:///var/run/docker.sock -H  192.168.64.131:2376 &
 ```
 
 解释:  
@@ -46,7 +46,7 @@ systemctl stop docker
 用0.0.0.0表示在所有的ip地址上监听. 不过这样太不安全, 别这么搞.
 ```
 systemctl stop docker
-/usr/bin/dockerd  -H tcp://127.0.0.1:2376 -H unix:///var/run/docker.sock -H 0.0.0.0:2376 &
+nohup /usr/bin/dockerd  -H tcp://127.0.0.1:2376 -H unix:///var/run/docker.sock -H 0.0.0.0:2376 &
 ```
 
 - Verify
