@@ -180,7 +180,21 @@ CREATE USER 'root'@'ip_address' IDENTIFIED BY 'some_pass';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'ip_address';
 ```
 
-If you see %, well then, there's another problem altogether as that is "any remote source". If however you do want any/all systems to connect via root, use the % wildcard to grant access:
+If you see %, well then, there's another problem altogether as that is "any remote source". 
+
+
+```
++-----------+
+| host      |
++-----------+
+| %         |
+| localhost |
++-----------+
+
+```
+
+If however you do want any/all systems to connect via root, use the % wildcard to grant access:
+
 ```
 CREATE USER 'root'@'%' IDENTIFIED BY 'some_pass';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';  
