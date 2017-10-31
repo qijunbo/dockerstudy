@@ -71,6 +71,10 @@ mysql -u root -p
 
 ```
 
+然后你会发现mysql容器写文件的权限是这样的, 不要随意改.
+![role](image/role.png)
+
+
 - chek environment variables
 
 ```
