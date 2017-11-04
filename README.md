@@ -6,7 +6,8 @@ all kinds of docker  images design
 - [Start a mysql db](mysql/README.md)
 - [Start a webapp use the db](java8/README.md)
 - [multi-service](multi-service/README.md)
-
+- [常用指令](command.md)
+- [REST API](rest/README.md)
 
 # Question 1
 
