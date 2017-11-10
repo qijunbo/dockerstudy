@@ -6,13 +6,15 @@ if [ -z "${name}" ]; then
    exit -1 ;
 fi
 
-mkdir  data
+mkdir data
+mkdir init
+cp  init.sql init/
 
 docker stop ${name}
 docker rm ${name}
 docker run --name ${name} \
     -v "$PWD/data":/var/lib/mysql  \
-    -v "$PWD":/docker-entrypoint-initdb.d \
+    -v "$PWD/init":/docker-entrypoint-initdb.d \
     -v "$PWD/docker.cnf":/etc/my.cnf \
     -e MYSQL_ROOT_PASSWORD=sunway123#  \
     -d -P mysql \
