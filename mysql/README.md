@@ -18,6 +18,7 @@ Script List
 <table>
 <tr><th>Name</th><th>Description</th></tr>
 <tr><td>startmysql.sh</td><td>&nbsp;启动一个官方的mysql容器, 并且初始化脚本.</td></tr>
+<tr><td>start@currentdir.sh</td><td>以当前文件夹为工作目录运行容器(方便用完后删除干净)</td></tr>
 <tr><td>startwithconf.sh</td><td>&nbsp;启动一个官方的mysql容器, 初始化脚本, 并且使用自定义配置文件.</td></tr>
 <tr><td>startwithout-P.sh</td><td>&nbsp;启动一个官方的mysql容器, 初始化脚本, 不使用端口映射, 无法从外部分访问.</td></tr>
 <tr><td>verify.sh</td><td>&nbsp;验证创建的容器是否执行了初始脚本, 用户my.cnf文件是否生效, 是否可以从外部联网.<br/> ** 唉, 尼玛, 我是不是太有才了  :-D **</td></tr>
