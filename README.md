@@ -157,7 +157,25 @@ git checkout . && git clean -xdf
 ```
 
 
+- Submodules
 
+````
+mkdir Dashboard
+cd Dashboard
+git init
+touch README.md
+git add README.md
+git commit -m "first commit"
+git remote add origin https://gitee.com/qijunbo/Dashboard.git
+git push -u origin master
+
+
+git submodule add ./limscloud.git Dashboard
+git add ./
+git commit -m "Dashboard"
+git remote add origin https://gitee.com/qijunbo/SIAS.git
+git push -u origin master
+```
 
 
 
