@@ -1,6 +1,10 @@
-
 how to network your containers
---
+==
+
+Example: 
+
+[A good example with wordexpress](wordexpress.md)
+
 
 - Create a network
 
