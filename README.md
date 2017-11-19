@@ -8,6 +8,8 @@ all kinds of docker  images design
 - [multi-service](multi-service/README.md)
 - [常用指令](command.md)
 - [REST API](rest/README.md)
+- [Restart](restart/readme.md)
+- [registry](registry/README.md)
 
 # Question 1
 
@@ -22,8 +24,7 @@ docker run -d  container_name
 CMD ["commands", "parm"]
 ```
 
-有的执行完了就推出了, 有的长期运行,永不停歇.
-
+有的执行完了就退出了, 有的长期运行,永不停歇.
 
 # How to add github ssh key
 - Create RSA key pare on you own pc
@@ -143,8 +144,8 @@ Fast-forward
 ```
 git checkout . #本地所有修改的。没有的提交的，都返回到原来的状态
 git stash #把所有没有提交的修改暂存到stash里面。可用git stash pop回复。
-git reset --hard HASH #返回到某个节点，不保留修改。
-git reset --soft HASH #返回到某个节点。保留修改
+git reset --hard HEAD #返回到某个节点，不保留修改。
+git reset --soft HEAD #返回到某个节点。保留修改
 
 git clean -df #返回到某个节点
 git clean 参数
@@ -156,7 +157,25 @@ git checkout . && git clean -xdf
 ```
 
 
+- Submodules
 
+````
+mkdir Dashboard
+cd Dashboard
+git init
+touch README.md
+git add README.md
+git commit -m "first commit"
+git remote add origin https://gitee.com/qijunbo/Dashboard.git
+git push -u origin master
+
+
+git submodule add ./limscloud.git Dashboard
+git add ./
+git commit -m "Dashboard"
+git remote add origin https://gitee.com/qijunbo/SIAS.git
+git push -u origin master
+```
 
 
 
