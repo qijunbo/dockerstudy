@@ -3,7 +3,7 @@ how to network your containers
 
 Example: 
 
-[A good example with wordexpress](wordexpress.md)
+[A good example with wordpress](wordpress.md)
 
 
 - Create a network

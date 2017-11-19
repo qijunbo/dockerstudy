@@ -22,6 +22,14 @@ Script List
 <tr><td>startwithconf.sh</td><td>&nbsp;启动一个官方的mysql容器, 初始化脚本, 并且使用自定义配置文件.</td></tr>
 <tr><td>startwithout-P.sh</td><td>&nbsp;启动一个官方的mysql容器, 初始化脚本, 不使用端口映射, 无法从外部分访问.</td></tr>
 <tr><td>verify.sh</td><td>&nbsp;验证创建的容器是否执行了初始脚本, 用户my.cnf文件是否生效, 是否可以从外部联网.<br/> ** 唉, 尼玛, 我是不是太有才了  :-D **</td></tr>
+
+<tr><td>README.md</td><td>这个文档.</td></tr>
+<tr><td>start@currentdir.sh</td><td>直接把数据放在当前目录下面, 清理时删除当前目录就可以了.</td></tr>
+<tr><td>autorestart.sh</td><td>遇到意外关机是,开机容器随着docker自动启动</td></tr>
+<tr><td>docker.cnf</td><td>mysql 自定义配置文件 </td></tr>
+<tr><td>init.sql</td><td>数据库初始化脚本</td></tr>
+<tr><td>startcreateDB.sh</td><td>不要数据初始化脚本, 容器启动时创建指定名称的数据库</td></tr>
+<tr><td>startwordpress.sh</td><td>启动一个wordpress应用,使用该数据库.</td></tr>
 </table>
 
  

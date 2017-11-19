@@ -3,7 +3,7 @@ Swarm
 
 Example:
 
-[A swarm exampell of WordExpress](trail.md)
+[A swarm exampell of wordpress](trail.md)
 
 
 Firewall considerations
