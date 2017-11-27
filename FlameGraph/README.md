@@ -16,6 +16,8 @@ process 3627
 ```
 # perf record -F 99 -p 14686 -g -- sleep 60  && perf script > out.perf
 
+# jstack -l 14686
+
 ```
 
 - Fold stacks
