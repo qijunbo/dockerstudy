@@ -10,6 +10,7 @@ all kinds of docker  images design
 - [REST API](rest/README.md)
 - [Restart](restart/readme.md)
 - [registry](registry/README.md)
+- [希云教程](http://csphere.cn/training)
 
 # Question 1
 

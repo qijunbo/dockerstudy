@@ -27,6 +27,23 @@ docker ps -a
 
 ```
 
+如果你想使用一个已有的数据库, 并且重用里面的数据,  再让过去上传的图片资源文件生效, 那么使用下面的:
+```
+docker run -d \
+           --name wordpress \
+		   -v /opt/cms/wp-content/uploads:/var/www/html/wp-content/uploads \
+           --link mysql:mysql \
+		   --env WORDPRESS_DB_NAME=old_db \
+		   --env WORDPRESS_TABLE_PREFIX=sc_p_ \
+           --env WORDPRESS_DB_HOST=mysql \
+           --env WORDPRESS_DB_PASSWORD=sunway123# \
+		   -p 8000:80 \
+          wordpress:latest
+
+```
+
+
+
 - 执行 geturl.show 轻松获取访问的入口url.
 
 Two ways of get app url.
@@ -59,3 +76,5 @@ Reference:
 
 
 http://blog.csdn.net/edwzhang/article/details/53332900
+
+WordPress 镜像使用攻略:  https://docs.docker.com/samples/library/wordpress/
