@@ -30,7 +30,7 @@ Setting Up a Simple Proxy Server
 
 ```
 docker run --name nginx -v /host/path/nginx.conf:/etc/nginx/nginx.conf:ro -d -p 8888:80 nginx
-``
+```
 
 - or you can mount conf folder , and write you own conf file, then reload nginx
 
@@ -39,6 +39,19 @@ mkdir -p /host/path/conf.d
 docker run --name nginx -v /host/path/conf.d:/etc/nginx/conf.d -d -p 8888:80 nginx
 docker exec -it nginx nginx -s reload
 ```
+
+Running nginx  with docker-compose
+--
+
+- downlad the [docker-compose.yml](docker-compose.yml)
+
+```
+docker-compose up -d
+```
+
+- Test
+
+ http://docker-host:8888
 
 
 
