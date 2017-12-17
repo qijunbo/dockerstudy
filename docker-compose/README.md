@@ -88,4 +88,25 @@ compose_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:8000->80/
 - Network 的类型,默认是 bridge 
 
 
+- 用 docker inspect 指令观察 db 容器， 可以发现如下片段：
+
+```
+ "HostConfig": {
+            "Binds": [
+                "compose_db_data:/var/lib/mysql:rw"
+            ],
+```
+
+因为compose文件里面没有指定数据存放的目录， 所以系统自动指派了目录。
+用find指令， 发现该目录信息如下：
+```
+root@ubuntu:/# find / -name compose_db_data
+./var/lib/docker/volumes/compose_db_data
+
+root@ubuntu:/var/lib/docker/volumes/compose_db_data/_data/wordpress# pwd
+/var/lib/docker/volumes/compose_db_data/_data/wordpress
+
+```
+
+
 
