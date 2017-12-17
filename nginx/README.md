@@ -23,7 +23,7 @@ docker run --name nginx -v /root/docker/web:/usr/share/nginx/html:ro -d -p 8888:
 http://docker_host:8888
 
 
-Setting Up a Simple Proxy Server
+Setting Up a Simple Server
 --
 
 - you can either override the nginx.conf

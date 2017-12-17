@@ -1,6 +1,11 @@
 # dockerstudy
 all kinds of docker  images design
 
+# 学习计划
+
+- [怎样在Dockerfile里使用环境变量](env/README.md)
+
+
 # Index of Content
 
 - [Start a mysql db](mysql/README.md)
