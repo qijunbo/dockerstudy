@@ -8,6 +8,7 @@ all kinds of docker  images design
 
 # Index of Content
 
+- [installation guid](install.md)
 - [Start a mysql db](mysql/README.md)
 - [Start a webapp use the db](java8/README.md)
 - [multi-service](multi-service/README.md)
