@@ -4,12 +4,12 @@
 官方文档
 --
 
-https://github.com/docker/compose/releases
+版本列表:  https://github.com/docker/compose/releases
 
 Good Example Start with wordpress: https://docs.docker.com/compose/wordpress/#build-the-project
 
 
-- Installation
+Installation
 --
 
 下面语句的含义是: 到[Github](https://github.com/docker/compose/releases)上下载到正确的版本, 并且copy到指定的目录下面, 改成可执行属性就OK了. 十分简单.
@@ -42,7 +42,7 @@ docker-compose version
 
 ```
 
-- Start Up With [docker-compose.yml](docker-compose.yml)
+Start Up With [docker-compose.yml](docker-compose.yml)
 --
 
 ```
