@@ -62,7 +62,22 @@ docker stack deploy -c docker-compose.yml gswagger_demo
 
 Docker会做一个就地更新，不需要先撕下堆栈或杀死任何容器。
 
-现在，重新运行``` docker container ls -q ```以查看重新配置的已部署实例。如果你扩大了副本，更多的任务，因此，更多的容器，开始。
+现在，重新运行``` docker container ls -q  ``` 以查看重新配置的已部署实例。如果你扩大了副本，更多的任务，因此，更多的容器，开始。
+
+### 验证
+
+在浏览器里面访问 http://localhost:32794 访问本demo， 先删除两条数据，接下来反复按F5刷新， 你会看到页面上的数据不大一样， 因为本demo每个实例用得都是独立的数据库， 而且没有做数据同步， 这样你就可以很清晰的看到来自不同实例的数据不一样。
+
+执行下面这条指令， 你会发现PORTS那一列， 宿主机并没有端口和内部的端口80一一绑定，至于原理， 要仔细读读这篇文章 [Configure service discovery](https://docs.docker.com/engine/swarm/networking/#configure-service-discovery) 
+
+
+```
+[root@izm5eaj3xjio5ppzd4ubxtz ~]# docker ps -a
+CONTAINER ID        IMAGE                         COMMAND                  CREATED             STATUS              PORTS                              NAMES
+3cef2add635a        qijunbo/swagger_demo:latest   "/bin/sh -c docker..."   8 minutes ago       Up 8 minutes        80/tcp                             demo_web.2.hym6vb77kwcddpallssmw448d
+efe197a322a0        qijunbo/swagger_demo:latest   "/bin/sh -c docker..."   17 minutes ago      Up 17 minutes       80/tcp                             demo_web.1.a6gynega48ul8s5czwum06s55
+```
+
 
 ### 取下应用程序和群
 
@@ -134,3 +149,9 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 ```
 从上面的输出可以看出， 一旦你初始化成功， 它会返回当前 swarm manager的 tocken，这样你把其他机器（术语叫 worker）加到这个 manager 里面的时候， 就用上这个 tocken了。
 
+- 资源分配
+
+[docker-compose.yml](docker-compose.yml) 文件里面也有个小坑， 就是指定cpu和memory, 如果你给的太小，系统肯定起不来。 如果内存足够， 但是cpu给的太少， 那么就会慢到毁三观。
+用 ``` docker attach <container id> ``` 命令进去看看， log都是一行一行慢慢蹦出来。 
+
+所以建议是， 干脆不要做限制。 
