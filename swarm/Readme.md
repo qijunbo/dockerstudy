@@ -1,6 +1,30 @@
 Swarm
 ==
 
+- init
+```
+root@j7fa7oyxomx6alsuoxmqftyzq:~# docker swarm init
+ 
+Swarm initialized: current node (j7fa7oyxomx6alsuoxmqftyzq) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-5qmpvjgl7bw2sjcwry8tq39gal7qr84apsecezl7js0430h6mr-3bsycg6gk9q3wmg1uzaopnp6r 172.31.209.221:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+```
+从上面的输出可以看出， 一旦你初始化成功， 它会返回当前 swarm manager的 tocken，这样你把其他机器（术语叫 worker）加到这个 manager 里面的时候， 就用上这个 tocken了。
+
+
+- leave
+
+```
+docker swarm leave
+```
+
+
+
 Example:
 
 [A swarm exampell of wordpress](trail.md)
