@@ -1,3 +1,18 @@
+Xwiki
+==
+
+#### 启动容器
+```
+docker-compose up -d
+```
+
+
+#### 访问主页
+http://localhost:8101
+
+
+
+
 Reference:
 ==
 https://docs.docker.com/samples/library/xwiki/#using-docker-run
