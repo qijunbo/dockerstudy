@@ -2,5 +2,6 @@ web:
   image: nginx
   volumes:
    - ./:/etc/nginx/conf.d/
+   - ./:/usr/share/nginx/html/
   ports:
    - "8888:80"
