@@ -1,5 +1,5 @@
 web:
-  image: nginx
+  image: nginx:1.12.2-alpine
   volumes:
    - ./conf.d:/etc/nginx/conf.d/
    - ./:/usr/share/nginx/html/
