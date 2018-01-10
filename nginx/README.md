@@ -7,15 +7,13 @@ Setting Up a Http Proxy Server
 -  get a web page 
 
 ```
-mkdir -p /root/docker/web
-cd /root/docker/web
 wget https://www.baidu.com/
 ```
 
 - start the nginx server
 
 ```
-docker run --name nginx -v /root/docker/web:/usr/share/nginx/html:ro -d -p 8888:80 nginx
+docker run --name nginx -v $(pwd):/usr/share/nginx/html:ro -d -p 8888:80 nginx
 ```
 
 - Test
@@ -42,6 +40,9 @@ docker exec -it nginx nginx -s reload
 
 Running nginx  with docker-compose
 --
+
+Note:
+> there is a [default.conf](conf.d/default.conf),  this file is the nginx default sample configure file which will make the container work properly. which is a wonderful sample to refer to .
 
 - downlad the [docker-compose.yml](docker-compose.yml)
 
