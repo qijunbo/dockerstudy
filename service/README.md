@@ -57,7 +57,7 @@ pgtst8jquy0g        swagger_demo_web.1       qijunbo/swagger_demo:latest   izm5e
 您可以通过更改[docker-compose.yml](docker-compose.yml)中的replicas值，保存更改并重新运行docker stack deploy命令来缩放应用程序：
 
 ```
-docker stack deploy -c docker-compose.yml gswagger_demo
+docker stack deploy -c docker-compose.yml swagger_demo
 ```
 
 Docker会做一个就地更新，不需要先撕下堆栈或杀死任何容器。
@@ -66,7 +66,7 @@ Docker会做一个就地更新，不需要先撕下堆栈或杀死任何容器�
 
 ### 验证
 
-在浏览器里面访问 http://localhost:32794 访问本demo， 先删除两条数据，接下来反复按F5刷新， 你会看到页面上的数据不大一样， 因为本demo每个实例用得都是独立的数据库， 而且没有做数据同步， 这样你就可以很清晰的看到来自不同实例的数据不一样。
+在浏览器里面访问 http://localhost:32794/ (后面这个斜杠/不可省略) 访问本demo， 先删除两条数据，接下来反复按F5刷新， 你会看到页面上的数据不大一样， 因为本demo每个实例用得都是独立的数据库， 而且没有做数据同步， 这样你就可以很清晰的看到来自不同实例的数据不一样。
 
 执行下面这条指令， 你会发现PORTS那一列， 宿主机并没有端口和内部的端口80一一绑定，至于原理， 要仔细读读这篇文章 [Configure service discovery](https://docs.docker.com/engine/swarm/networking/#configure-service-discovery) 
 
@@ -84,7 +84,7 @@ efe197a322a0        qijunbo/swagger_demo:latest   "/bin/sh -c docker..."   17 mi
 拿下应用程序docker stack rm：
 
 ```
-docker stack rm gswagger_demo
+docker stack rm swagger_demo
 ```
 
 离开这个 swarm
