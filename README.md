@@ -80,6 +80,12 @@ root@ubuntu:~/.ssh# cat id_rsa.pub
 git clone git@github.com:qijunbo/dockerstudy.git
 ```
 
+获取指定的分支
+
+```
+git clone  git@github.com:qijunbo/dockerstudy.git -b 分支名
+```
+
 - Put
 
 ```
@@ -166,7 +172,7 @@ git checkout . && git clean -xdf
 
 - Submodules
 
-````
+```
 mkdir Dashboard
 cd Dashboard
 git init
