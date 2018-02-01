@@ -89,8 +89,27 @@ mysql -u root -p
 ```
 mysqladmin -u root -p variables  | grep  "case"
 ```
-	
 
+- 查看版本号 (version)
+
+```
+$>  mysql -V
+
+or
+
+$> mysql --help | grep "Distrib"
+
+or
+
+mysql> select version();
+
+or
+
+mysql> \s
+
+```	
+
+	
 Create DB
 --
 	mysqladmin -u root -p create dbs_dev DEFAULT CHARSET utf8 COLLATE utf8_general_ci
