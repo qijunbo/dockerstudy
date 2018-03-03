@@ -1,0 +1,51 @@
+version: '3.4'
+
+services:
+  db:
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - webnet
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: qijunbo
+      MYSQL_DATABASE: swaggerdemo
+      MYSQL_USER: swaggerdemo
+      MYSQL_PASSWORD: swaggerdemo
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"] 
+      interval: 10s
+      timeout: 2s
+      retries: 2
+      start_period: 50s
+                
+  web:
+    depends_on:
+      - db
+    image: qijunbo/swagger_demo:latest
+    deploy:
+      replicas: 3
+      resources:
+        limits:
+          cpus: "0.2"
+          memory: 1024M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "32794:80"
+    networks:
+      - webnet
+    restart: always
+    environment:
+      ACTIVE_PROFILE: dev
+      APP_DB_HOST: db
+      APP_DB_PORT: 3306
+      APP_DB_USER: swaggerdemo
+      APP_DB_PASSWORD: swaggerdemo
+      APP_DATABASE: swaggerdemo
+volumes:
+  db_data:
+networks:
+  webnet:
+
