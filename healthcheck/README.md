@@ -1,11 +1,11 @@
 Healthcheck
 ==
 
-一个比较好的例子是mysql的[Dockerfile](https://github.com/qijunbo/mysql-docker/blob/mysql-server/5.7/Dockerfile)和[healthcheck.sh](https://github.com/qijunbo/mysql-docker/blob/mysql-server/5.7/healthcheck.sh) 的写法.
 
+方法一:
+--
 
-
-1.  Dokcerfile 里面本身要支持健康检查 , 例如:
+Dokcerfile 里面本身支持健康检查 , 例如:
 
 ```
 HEALTHCHECK --interval=5m --timeout=3s \
@@ -13,19 +13,34 @@ HEALTHCHECK --interval=5m --timeout=3s \
 ```
 
 
-2.  docker-compose 文件里面使用该检查.
+一个比较好的例子是mysql的[Dockerfile](https://github.com/qijunbo/mysql-docker/blob/mysql-server/5.7/Dockerfile)和[healthcheck.sh](https://github.com/qijunbo/mysql-docker/blob/mysql-server/5.7/healthcheck.sh) 的写法.
+
+
+方法二: 
+--
+
+>(从docker-compose v2.1 开始支持, 但是 v3.4 才完全支持 HEALTHCHECK 的所有参数.)
+ 
+docker-compose 文件里面使用该检查. 这里有一个运行成功的案例[docker-compose.yml](docker-compose.yml)
 
 ```
-version: "2.1"
+docker stack deploy -c docker-compose.yml swagger_demo
+
+```
+关于如何验证运行成功, 可以参考[service](../service/README.md)章节.
+
+
+这种机制可以用来让容器web等待db启动成功,并完成初始化了之后再启动. 保证web可以成功启动.
+有时候数据库初始化确实要很长时间.
+
+```
+version: "3.4"
 services:
-    api:
+    web:
         build: .
-        container_name: api
+        container_name: web
         ports:
             - "8080:8080"
-        depends_on:
-            db:
-                condition: service_healthy
     db:
         container_name: db
         image: mysql
@@ -41,7 +56,7 @@ services:
             interval: 30s
             timeout: 2s
             retries: 10
-            start-period: 300s
+            start-period: 10m30s
 	  
 ```
 

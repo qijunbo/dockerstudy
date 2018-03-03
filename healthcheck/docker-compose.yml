@@ -17,7 +17,7 @@ services:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"] 
       interval: 10s
       timeout: 2s
-      retries: 2
+      retries: 5
       start_period: 50s
                 
   web:
