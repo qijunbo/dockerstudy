@@ -34,3 +34,6 @@ FROM lims_st.st_inspectiondetail as d left join lims_st.st_inspection t on d.TYP
 where t.`TYPE` = 3  ;
 
 SELECT * FROM lims_st.st_inspection;
+
+
+SELECT DISTINCT(T.NSDID),d.ID,d.TYPE1,d.TYPE2,d.TYPE3,d.TYPE4 FROM st_spec_test t,st_inspection d WHERE t.NSDID = d.ID ORDER BY d.type1 DESC,d.type2 DESC,d.type3 DESC,d.type4 DESC;
