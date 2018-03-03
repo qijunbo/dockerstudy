@@ -1,6 +1,10 @@
 Healthcheck
 ==
 
+一个比较好的例子是mysql的[Dockerfile](https://github.com/qijunbo/mysql-docker/blob/mysql-server/5.7/Dockerfile)和[healthcheck.sh](https://github.com/qijunbo/mysql-docker/blob/mysql-server/5.7/healthcheck.sh) 的写法.
+
+
+
 1.  Dokcerfile 里面本身要支持健康检查 , 例如:
 
 ```
@@ -34,10 +38,10 @@ services:
             MYSQL_DATABASE: "database"
         healthcheck:
             test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-			interval: 30s
+            interval: 30s
             timeout: 2s
             retries: 10
-			start-period: 300s
+            start-period: 300s
 	  
 ```
 
