@@ -1,0 +1,15 @@
+version: "3"
+services:
+  hadoop:
+    image: sequenceiq/hadoop-docker:2.7.1
+    volumes:
+      - /root/mykey/:/root/.ssh/
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+    ports:
+    networks:
+      - webnet
+networks:
+  webnet:
