@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'logger'
+    version =  '1.0'
+}
+
+springBoot {
+    mainClass = 'com.sunway.logger.Application'
+    executable = true
+}
+
+repositories {
+	maven { url 'http://maven.aliyun.com/nexus/content/repositories/central/' }
+	maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
+    mavenCentral()
+    
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+	//spring-boot
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-freemarker")
+
+ 	// swagger-ui
+    compile("io.springfox:springfox-swagger2:2.7.0")
+    compile("io.springfox:springfox-swagger-ui:2.7.0")
+  	 
+    // http client
+    compile 'org.apache.httpcomponents:httpclient:4.5.3'
+    
+    //test
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    
+    //gson
+    compile("com.google.code.gson:gson")
+}
+

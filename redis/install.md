@@ -110,6 +110,43 @@ run ``` redis-cli ``` client.
 
 ```
 
+redis 备份与恢复
+--
+
+1.启动redis
+
+进入redis目录
+
+redis-cli
+
+2.数据备份
+
+redis 127.0.0.1:6379> SAVE 
+该命令将在 redis 备份目录中创建dump.rdb文件。
+
+3.恢复数据
+
+1、获取备份目录
+
+redis 127.0.0.1:6379> CONFIG GET dir
+1) "dir"
+2) "/usr/local/redis/bin"　　　
+
+以上命令 CONFIG GET dir 输出的 redis 备份目录为 /usr/local/redis/bin。
+
+2、停止redis服务
+
+3、拷贝备份文件到 /usr/local/redis/bin目录下
+
+4、重新启动redis服务
+
+Reference: [备份与恢复](https://www.cnblogs.com/qinghub/p/5909921.html)
+
+
 怎样让把RedIS配置成服务，Linux开机时自启动？
 ==
-	
+
+redis作为windows服务启动方式
+redis-server --service-install redis.windows.conf
+启动服务：redis-server --service-start
+停止服务：redis-server --service-stop	
