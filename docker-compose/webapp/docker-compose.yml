@@ -1,0 +1,31 @@
+version: '3.4'
+
+networks:
+  bridge:
+    driver: bridge
+    external:
+      name: mysql_bridge
+services:
+  web:
+    image: sunway/lims:v2
+    container_name: lims_good_name
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "32894:8080"
+    external_links:
+      - "good_name:db"
+    networks:
+      - bridge
+    restart: always
+    environment:
+      CONTEXTPATH: limsv2
+      RESOURCE_NAME1: framework
+      RESOURCE_NAME2: jdbc/framework
+      APP_DB_HOST: db
+      APP_DB_PORT: 3306
+      APP_DB_USER: root
+      APP_DB_PASSWORD: sunway123#
+      APP_DATABASE: dbs_dev

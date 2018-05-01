@@ -12,9 +12,9 @@ How to use this image
 - start a redis instance
 
 ```
-docker run --name red -d redis
-docker run --name red -d -P redis
-docker run --name red -d -p 6379:6379 redis
+docker run --name redis -d redis
+docker run --name redis -d -P redis
+docker run --name redis -d -p 6379:6379 redis
 ```
 官方默认的容器安全性上设计的不太完美, 不需要密码也可以访问. 如果能够在启动的时候,传入参数就好了, 可以参考mysql容器的设计方式, 从新定制.
 

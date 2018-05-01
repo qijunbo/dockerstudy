@@ -74,7 +74,8 @@ echo "http://${ip%/*}:${port}/wp-admin"
 Reference: 
 == 
 
+官方镜像地址:  https://hub.docker.com/_/wordpress/
 
-http://blog.csdn.net/edwzhang/article/details/53332900
+shell知识拓展:   http://blog.csdn.net/edwzhang/article/details/53332900
 
 WordPress 镜像使用攻略:  https://docs.docker.com/samples/library/wordpress/
