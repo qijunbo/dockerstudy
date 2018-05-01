@@ -1,0 +1,22 @@
+version: '3.4'
+networks:
+  bridge:
+    driver: bridge
+services:
+  db:
+    image: mysql
+    container_name: good_name
+    volumes:
+      - /docker/qijunbo/data:/var/lib/mysql
+      - /docker/everyone/initsql/:/docker-entrypoint-initdb.d
+      - /docker/everyone/conf/docker.cnf:/etc/my.cnf
+    networks:
+      - bridge   
+    restart: always
+    ports:
+      - "3309:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: sunway123#
+      MYSQL_DATABASE: dbs_dev
+      MYSQL_USER: root
+      MYSQL_PASSWORD: sunway123#
