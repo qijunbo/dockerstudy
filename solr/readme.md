@@ -8,6 +8,7 @@ Docker https://docs.docker.com/samples/library/solr/
 
 Github https://github.com/docker-solr/docker-solr
 
+安全性:  https://blog.csdn.net/ddfcloi/article/details/79898039
 
 Solr
 ==
