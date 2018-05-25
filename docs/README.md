@@ -2,6 +2,10 @@
 View the docs archives
 ==
 
+Reference
+--
+https://docs.docker.com/docsarchive/
+
 Estimated reading time: 3 minutes
 This page lists the various ways you can view the docs as they were when a prior version of Docker was shipped.
 
