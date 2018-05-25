@@ -153,3 +153,9 @@ PING dbtony (172.18.0.2): 56 data bytes
 round-trip min/avg/max/stddev = 0.064/0.090/0.117/0.027 ms
 
 ```
+
+Reference
+==
+
+https://github.com/docker/labs/blob/master/beginner/chapters/votingapp.md
+
