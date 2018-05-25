@@ -18,6 +18,8 @@ docker run -tid -p 4000:4000 docs/docker.github.io:latest
 
 docker run -tid -p 4000:4000 docs/docker.github.io:v18.03
 
+docker run -tid -p 4000:4000 --restart=always docs/docker.github.io:v18.03
+
 v17.12
 --
 Docs for v17.12 are accessible at https://docs.docker.com/v17.12/, or to view the docs offline on your local machine, run:
