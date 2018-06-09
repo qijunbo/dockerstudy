@@ -55,6 +55,10 @@ docker-compose up -d
  http://docker-host:8888
 
 
+- Link other existing container in nginx
+
+https://docs.docker.com/registry/recipes/nginx/#starting-and-stopping
+ 
 
 Reference:
 --

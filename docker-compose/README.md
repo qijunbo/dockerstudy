@@ -108,5 +108,11 @@ root@ubuntu:/var/lib/docker/volumes/compose_db_data/_data/wordpress# pwd
 
 ```
 
+Reference
+==
 
+- Link other existing container in nginx
+
+https://docs.docker.com/registry/recipes/nginx/#starting-and-stopping
+ 
 
