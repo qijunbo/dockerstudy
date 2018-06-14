@@ -11,6 +11,7 @@ docker-compose up -d
 http://localhost:8101
 
 
+![admin](admin.jpg)
 
 
 Reference:
