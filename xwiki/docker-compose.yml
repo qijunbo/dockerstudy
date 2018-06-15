@@ -4,7 +4,7 @@ networks:
     driver: bridge
 services:
   web:
-    image: "xwiki:mysql-tomcat"
+    image: "xwiki:10.4-mysql-tomcat"
     container_name: xwiki-mysql-web
     depends_on:
       - db
@@ -19,7 +19,7 @@ services:
     networks:
       - bridge
   db:
-    image: "mysql"
+    image: "mysql:5.7"
     container_name: xwikidb
     volumes:
       - ./xwiki.cnf:/etc/mysql/conf.d/xwiki.cnf
