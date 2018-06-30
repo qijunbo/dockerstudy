@@ -1,13 +1,13 @@
-Python
+ï»¿Python
 ==
 
-°²×°ÒÀÀµÄ£¿é mysql-python
+å®‰è£…ä¾èµ–æ¨¡å— mysql-python
 
-No module named MYSQLdb ÎÊÌâ½â¾ö
-ÎÊÌâÃèÊö£º
-±¨´í£ºImportError: No module named MySQLdb
+No module named MYSQLdb é—®é¢˜è§£å†³
+é—®é¢˜æè¿°ï¼š
+æŠ¥é”™ï¼šImportError: No module named MySQLdb
 
-¶ÔÓÚ²»Í¬µÄÏµÍ³ºÍ³ÌÐòÓÐÈçÏÂµÄ½â¾ö·½·¨£º
+å¯¹äºŽä¸åŒçš„ç³»ç»Ÿå’Œç¨‹åºæœ‰å¦‚ä¸‹çš„è§£å†³æ–¹æ³•ï¼š
 ```
 easy_install mysql-python (mix os)
 pip install mysql-python (mix os)
