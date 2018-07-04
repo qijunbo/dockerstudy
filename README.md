@@ -210,6 +210,24 @@ or push an existing repository from the command line
 git remote add origin git@github.com:qijunbo/cos.git
 git push -u origin master
 ```
+
+1. 查看远程分支
+```
+$ git branch -a 
+```
+2. 查看本地分支
+```
+$ git branch
+```
+3. 切换分支
+```
+$ git checkout -b v0.9rc1 origin/v0.9rc1
+```
+4. 切换回master分支
+```
+$ git checkout master 
+```
+
 知识扩展：
 --
 
