@@ -1,3 +1,6 @@
+chmod +x gradlew
+gradlew clean build
+
 mkdir -p /opt/logger
 systemctl stop logger
 cp -f logger-1.0.jar  /opt/logger/logger-1.0.jar
