@@ -259,5 +259,8 @@ you need to try ** ip **,  ** ping ** , or else,  it would be tough to debug.
 docker exec -it qijunbo ping 172.17.0.1 
 ```
 
+拓展阅读:   mysql 主从数据库同步
+==
 
+https://blog.csdn.net/fyihdg/article/details/78951357
 	
