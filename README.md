@@ -3,7 +3,7 @@ all kinds of docker  images design
 
 # 学习计划
 
-- [怎样在Dockerfile里使用环境变量](env/README.md)
+- [怎样在Dockerfile里使用环境变量](env/README.md) [完成]
 
 
 # Index of Content
@@ -86,6 +86,14 @@ git clone git@github.com:qijunbo/dockerstudy.git
 ```
 git clone  git@github.com:qijunbo/dockerstudy.git -b 分支名
 ```
+
+获取指定历史版本
+
+```
+git checkout b0362a895d39061c0bc6f05c575af47de1b3f702
+
+```
+
 
 - Put
 
