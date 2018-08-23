@@ -16,8 +16,7 @@ docker run --name redis -d redis
 docker run --name redis -d -P redis
 docker run --name redis -d -p 6379:6379 redis
 ```
-官方默认的容器安全性上设计的不太完美, 不需要密码也可以访问. 如果能够在启动的时候,传入参数就好了, 可以参考mysql容器的设计方式, 从新定制.
-
+ 
 - Verify
 
 ```
@@ -50,6 +49,12 @@ OK
 1) "requirepass"
 2) "runoob"
 ```
+
+你还可以通过修改配置文件, 来设定redis启动密码
+```
+docker run -v /myredis/conf/redis.conf:/usr/local/etc/redis/redis.conf --name myredis redis redis-server /usr/local/etc/redis/redis.conf
+```
+
 
 设置密码后，客户端连接 redis 服务就需要密码验证，否则无法执行命令。
 
