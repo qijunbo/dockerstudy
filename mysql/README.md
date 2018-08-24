@@ -12,6 +12,11 @@ https://github.com/docker-library/mysql/tree/master/8.0
 https://github.com/mysql/mysql-docker
 
 
+中文支持
+==
+[中文支持](chinese.md)
+
+
 Script List
 --
 
