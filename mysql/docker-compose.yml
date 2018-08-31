@@ -1,0 +1,28 @@
+version: '3.4'
+networks:
+  webnet:
+    driver: bridge
+services:
+  mysqldb:
+    image: mysql:5.7
+    container_name: mysqldb
+    ports:
+      - "3306:3306"
+    volumes:
+      - /opt/limsst/mysql/data:/var/lib/mysql
+      - ./config/mysql/initsql/:/docker-entrypoint-initdb.d
+      - ./docker.cnf:/etc/my.cnf
+    networks:
+      - webnet   
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: sunway123###
+      MYSQL_DATABASE: product
+      MYSQL_USER: product
+      MYSQL_PASSWORD: sunway123#
+  adminer:
+    image: adminer:4.6
+    restart: always
+    ports:
+      - 8822:8080
+ 
