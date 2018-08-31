@@ -1,8 +1,6 @@
 # Use root/sunway as user/password credentials
 version: '3.1'
-
 services:
-
   mongo:
     image: mongo
     ports:

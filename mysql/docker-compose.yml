@@ -16,7 +16,7 @@ services:
       - webnet   
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: sunway123###
+      MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: product
       MYSQL_USER: product
       MYSQL_PASSWORD: sunway123#
