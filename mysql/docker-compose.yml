@@ -3,7 +3,7 @@ networks:
   webnet:
     driver: bridge
 services:
-  mysqldb:
+  db:
     image: mysql:5.7
     container_name: mysqldb
     ports:
@@ -13,7 +13,7 @@ services:
       - ./config/mysql/initsql/:/docker-entrypoint-initdb.d
       - ./docker.cnf:/etc/my.cnf
     networks:
-      - webnet   
+      - webnet
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
@@ -21,8 +21,13 @@ services:
       MYSQL_USER: product
       MYSQL_PASSWORD: sunway123#
   adminer:
-    image: adminer:4.6
+    image: phpmyadmin/phpmyadmin
+#    image: adminer:4.6
     restart: always
+    environment:
+      PMA_HOST: 192.168.47.129
     ports:
-      - 8822:8080
+      - 8822:80
+
+
  
