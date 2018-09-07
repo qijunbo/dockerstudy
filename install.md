@@ -122,4 +122,19 @@ vim /etc/docker/daemon.json
 ```
 
 sudo systemctl daemon-reload
-sudo service docker restart			  
+sudo service docker restart	
+
+### 阿里官方做法		  
+
+```
+
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://58p161eg.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+
+```
