@@ -9,3 +9,6 @@
 公司账户
 
 leezyu/leezyu@1979
+
+公司容器
+密码: sunway$1000

@@ -157,13 +157,19 @@ Two ways of starting mysqld with your own conf file.
 
 - Using a Custom MySQL Config File
 
-First, create your own configure file, saying -- docker.cnf -- , copy this content, to make mysql table names case insensitive.(the third line)
+First, create your own configure file, saying -- docker.cnf -- , copy this content, to make mysql table names case insensitive.(the third line), and support utf-8 by default(character_set_server = utf8  collation-server=utf8_general_ci ), and so on.
 
 ```
 [mysqld]
 skip-host-cache
 skip-name-resolve
 lower_case_table_names = 1
+max_connections=500
+innodb_buffer_pool_size=5120M
+innodb_buffer_pool_instances=5
+default-time-zone=+8:00
+character_set_server = utf8
+collation-server=utf8_general_ci
 
 ```
 The mount the **file name** to  ** my.cnf** within the container, ** It'seems crazy, but it really work ** with [mysql-docker](https://github.com/qijunbo/mysql-docker) [mysql  Ver 14.14 Distrib 5.7.19] 
@@ -171,6 +177,12 @@ The mount the **file name** to  ** my.cnf** within the container, ** It'seems cr
 ```
 docker run --name goodname -v /my/custom/docker.cnf:/etc/my.cnf -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:tag
 ```
+
+and you can also try to override the file ``` /etc/mysql/conf.d/docker.cnf ```, this must work, too.
+```
+docker run --name goodname -v /my/custom/docker.cnf:/etc/mysql/conf.d/docker.cnf -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql/mysql-server:5.7
+```
+
 ### Way 2 mout directory ###
 
 From [https://github.com/docker-library/docs/tree/master/mysql](https://github.com/docker-library/docs/tree/master/mysql#using-a-custom-mysql-configuration-file)
@@ -182,6 +194,31 @@ If /my/custom/config-file.cnf is the path and name of your custom configuration 
 ```
 docker run --name goodname -v /my/custom:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
 ```
+
+### Way 3 via docker stack deploy or docker-compose
+
+Reference: https://docs.docker.com/samples/library/mysql/#-via-docker-stack-deploy-or-docker-compose
+
+```yml
+
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+```
+
 
 # How to use offical MYSQL  docker image
 

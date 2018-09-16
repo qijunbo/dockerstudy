@@ -15,7 +15,7 @@ services:
       - DB_PASSWORD=xwiki
       - DB_HOST=xwikidb
     volumes:
-      - ./xwikidata:/usr/local/xwiki
+      - xwikidata:/usr/local/xwiki
     networks:
       - bridge
   db:
@@ -23,7 +23,7 @@ services:
     container_name: xwikidb
     volumes:
       - ./xwiki.cnf:/etc/mysql/conf.d/xwiki.cnf
-      - ./mysql/data:/var/lib/mysql
+      - xwikimysqldata:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=xwiki
       - MYSQL_USER=xwiki
@@ -31,4 +31,6 @@ services:
       - MYSQL_DATABASE=xwiki
     networks:
       - bridge
- 
+volumes:
+  xwikimysqldata: {}
+  xwikidata: {}
