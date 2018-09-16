@@ -58,6 +58,15 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
 ```
 
+创建用户
+--
+
+```
+use admin
+db.createUser({ user: "root", pwd: "sunway", roles: [{ role: "userAdminAnyDatabase", db: "admin" }] })
+```
+
+
 向镜像里面传参数的例子
 --
 ```
