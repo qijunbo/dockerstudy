@@ -5,7 +5,7 @@ if [ -z "${name}" ]; then
    exit -1 ;
 fi
 docker container prune -f
-docker run --name ${name} -d -P qijunbo/java:8
+docker run --name ${name} -d -P qijunbo/openjdk:8
 docker ps -a 
 
 

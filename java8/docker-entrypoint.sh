@@ -1,6 +1,7 @@
 #!/bin/sh
 #set -e
-jarfile=(`ls *jar`)
-java -jar  ${jarfile}
+echo `ls *jar`
+jarfile=`ls *jar`
+java  -jar  ${jarfile}
 
  
