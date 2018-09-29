@@ -1,4 +1,4 @@
 FROM openjdk:8-jre-alpine
-COPY customer.jar  /customer.jar
-EXPOSE 80
-CMD  java -jar customer.jar
+VOLUME /app
+EXPOSE 80 8080 443
+ENTRYPOINT docker-entrypoint.sh
