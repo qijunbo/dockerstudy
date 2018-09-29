@@ -221,16 +221,18 @@ git push -u origin master
 
 1. 查看远程分支
 ```
-$ git branch -a 
+$ git branch -r 
 ```
 2. 查看本地分支
 ```
 $ git branch
 
 ```
-3. 切换分支
+3. 拉取远程分支并创建本地分支
+
+使用该方式会在本地新建分支x，并自动切换到该本地分支x。
 ```
-$ git checkout -b  
+$ git checkout -b 本地分支名x origin/远程分支名x 
 ```
 4. 切换到master分支
 ```
