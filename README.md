@@ -226,15 +226,24 @@ $ git branch -a
 2. 查看本地分支
 ```
 $ git branch
+
 ```
 3. 切换分支
 ```
-$ git checkout -b v0.9rc1 origin/v0.9rc1
+$ git checkout -b  
 ```
-4. 切换回master分支
+4. 切换到master分支
 ```
 $ git checkout master 
 ```
+
+5. 创建/删除本地分支
+```
+git branch test
+
+git branch -d  test
+```
+
 
 知识扩展：
 --
