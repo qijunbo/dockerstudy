@@ -1,4 +1,5 @@
 #!/bin/sh
+
 version=$1
 if [ -z "${version}" ]; then 
    echo Usage: ${0} version
@@ -6,6 +7,6 @@ if [ -z "${version}" ]; then
 fi
 
 
-chmod 777 *.sh
-docker image build -t sunway/lims:${version}  .
+chmod +x *.sh
+docker image build -t qijunbo/tomcat:${version}  .
 docker images  
