@@ -1,0 +1,68 @@
+version: '3.4'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+      - /docker/everyone/initsql:/docker-entrypoint-initdb.d
+      - /docker/everyone/conf/docker.cnf:/etc/my.cnf
+    ports:
+      - "3336:3306"
+    networks:
+      - webnet   
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: dbs_lims_elab
+      MYSQL_DATABASE: dbs_lims_elab
+      MYSQL_USER: dbs_lims_elab
+      MYSQL_PASSWORD: dbs_lims_elab
+    healthcheck:
+#      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: ["CMD", "mysqlcheck", "--check", "--databases", "dbs_lims_elab", "-udbs_lims_elab", "-pdbs_lims_elab"] 
+      interval: 20s
+      timeout: 2s
+      retries: 5
+      start_period: 6m50s
+  web:
+    depends_on:
+      - db
+    image: registry.cn-hangzhou.aliyuncs.com/qijunbo/lims:1.0.0
+    volumes:
+      - ./logs:/usr/local/tomcat/logs
+    deploy:
+      replicas: 1
+#      resources:
+#        limits:
+#          cpus: "0.2"
+#          memory: 2048M
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8100:8080"
+    networks:
+      - webnet
+    restart: always
+    environment:
+      CONTEXTPATH: lims
+      RESOURCE_NAME: framework
+      APP_DB_HOST: db
+      APP_DB_PORT: 3306
+      APP_DB_USER: dbs_lims_elab
+      APP_DB_PASSWORD: dbs_lims_elab
+      APP_DATABASE: dbs_lims_elab
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "7001:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet
+volumes:
+  db_data:
+networks:
+  webnet:
