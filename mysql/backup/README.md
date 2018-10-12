@@ -12,6 +12,14 @@ mysql 备份恢复策略
 ```
 其中 containerName 是mysql docker 容器的名字.
 
+docker 官方推荐的备份方式:
+
+```
+docker exec mysql sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_ROOT_PASSWORD"' > /some/path/on/your/host/all-databases.sql
+
+docker exec mmwiki_db_1 sh -c 'exec mysqldump mm_wiki -uroot -psunway123###' > /root/docker/mm_wiki/mm_wiki.sql
+```
+
 
 数据恢复
 --
