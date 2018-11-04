@@ -1,0 +1,53 @@
+version: '3.4'
+networks:
+  webnet:
+    driver: bridge
+services:
+    swhome:
+        image: registry.cn-hangzhou.aliyuncs.com/inmost/develop:1.1-cl
+        restart: always
+        environment:
+            JAVA_OPTS: -server -Xms128m -Xmx512m -XX:MaxPermSize=256m -Duser.timezone=Asia/Shanghai -Dmdm.cloud=/mdm8 -Dmdm.cv=false -Dmdm.home=/home/mdm8
+            APP_DB_HOST: 172.31.221.150
+            APP_DB_PORT: 3336
+            APP_DATABASE: mdmdev
+            APP_DB_USER: mdmdev
+            APP_DB_PASSWORD: mdmdev
+        volumes:
+            - ./logs:/home/mdm8/logs
+            - ./_MDMFILE:/home/mdm8/_MDMFILE
+            - /docker/common_mdm/versions/V8.0.108/icore.war:/usr/local/apache-tomcat-8.0.52/webapps/icore.war
+            - /docker/common_mdm/versions/V8.0.108/timers.war:/usr/local/apache-tomcat-8.0.52/webapps/timers.war
+            - /docker/common_mdm/versions/V8.0.108/engine.war:/usr/local/apache-tomcat-8.0.52/webapps/engine.war
+            - /docker/common_mdm/versions/V8.0.108/bpm.war:/usr/local/apache-tomcat-8.0.52/webapps/bpm.war
+    swcode:
+        image: registry.cn-hangzhou.aliyuncs.com/inmost/develop:1.1-cl
+        restart: always
+        environment:
+            JAVA_OPTS: -server -Xms256m -Xmx512m -XX:MaxPermSize=256m -Duser.timezone=Asia/Shanghai -Dmdm.cloud=/mdm8 -Dmdm.cv=false -Dmdm.home=/home/mdm8
+            APP_DB_HOST: 172.31.221.150
+            APP_DB_PORT: 3336
+            APP_DATABASE: mdmdev
+            APP_DB_USER: mdmdev
+            APP_DB_PASSWORD: mdmdev
+        volumes:
+            - ./logs:/home/mdm8/logs
+            - ./_MDMFILE:/home/mdm8/_MDMFILE
+            - /docker/common_mdm/versions/V8.0.108/module.war:/usr/local/apache-tomcat-8.0.52/webapps/module.war
+            - /docker/common_mdm/versions/V8.0.108/mdmcode.war:/usr/local/apache-tomcat-8.0.52/webapps/mdmcode.war
+        depends_on:
+            - "swhome"
+    swredis:
+        image: redis
+        restart: always
+        command: [ 'redis-server', '--appendonly', 'yes' ]
+    swnginx:
+        image: nginx:1.13
+        restart: always
+        ports:
+            - "8084:8080"
+        volumes:
+            - /docker/common_mdm/everyone/mdm8cloud:/usr/share/nginx/html
+            - /docker/common_mdm/everyone/conf-simple/mdm8.conf:/etc/nginx/conf.d/mdm8.conf
+        depends_on:
+            - "swcode"
