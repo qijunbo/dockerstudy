@@ -18,37 +18,8 @@
 ### 开发环境搭建 ###
 
 - 准备工作 [Elasticsearch镜像使用说明](Elastic.md)
-
-
-- 下载代码 : http://mdm.sunwayworld.com/svn/iframework/iframework/trunk/lims-cloud/logger
-
-
-
-- 执行命令
-到logger项目所在的目录执行. 
-
-```
-eclipse.bat
-```
-
-- 解决速度奇慢的问题
-
-在执行的过程中, 系统要下载gradle-4.0-bin.zip. 你用自己喜欢的下载工具,快速把gradle-4.0-bin.zip下载好, 放在D:\Software 下面.  然后修改下面这个文件.
-
-....\workspace\limscloud\logger\logger\gradle\wrapper
-
-把里面的互联网路径注掉, 换成本地路径.
-
-```
-#distributionUrl=https\://services.gradle.org/distributions/gradle-4.0-bin.zip
-distributionUrl=file\:///D\:/Software/gradle-4.0-bin.zip
-```
-
-![gradle](document/image/gradle.png)
-
-
-- 导入到Eclipse里面
-
+ 
+ 
 - 修改邮箱账户
 把下面文件中的邮箱账号密码改成你自己的.
 ...\limscloud\logger\logger\src\main\resources\application.properties
@@ -67,8 +38,7 @@ smtp.senderPassword=xxxx
 elastic.contextPath=http://192.168.1.30:9200
  
 ```
-
-
+ 
 
 ###  快速测试 ###
 
@@ -92,24 +62,8 @@ build.bat
    * APP Entrance: http://localhost/swagger-ui.html 
 
    
-
-### 部署生产环境 ###
-
  
-- 编译jar包
-
-```
-build.bat
-```
-
-- 部署
-
-上传到 /home/docker/logger, 然后执行 :
-
-```
-./jardeployment.sh
-
-```
+ 
   
 ### 参考文献 ###
 
@@ -123,6 +77,7 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.
 
 
 中文指南 
+https://www.jianshu.com/p/fa31f38d241e
 
 http://www.ruanyifeng.com/blog/2017/08/elasticsearch.html
 
