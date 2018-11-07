@@ -1,4 +1,4 @@
-Dokcer 镜像开发人员学习手册
+ElasticSearch 镜像使用手册
 ==
 
 日志管理用于记录日志, 并提供全文检索. 本方案采用Elasticsearch全文搜索引擎.

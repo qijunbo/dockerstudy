@@ -19,16 +19,9 @@
 
 - 准备工作 [Elasticsearch镜像使用说明](Elastic.md)
  
- 
-- 修改邮箱账户
-把下面文件中的邮箱账号密码改成你自己的.
-...\limscloud\logger\logger\src\main\resources\application.properties
+-  Java API [6.4.x](https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/index.html)
 
-```
-smtp.senderEmail=qijb@sunwayworld.com
-smtp.senderPassword=xxxx
- 
-```
+-  REST API [6.4.x](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html)
 
 -  配置
 
