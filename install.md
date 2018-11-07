@@ -8,10 +8,19 @@
 傻瓜指南
 --
 
-- 删除旧版本, 如果有. 
+- 删除旧版本, 如果有.  (卸载的时候务必参考[官方卸载指南](https://docs.docker.com/engine/installation/linux/docker-ce/centos/))
 
 ```
-yum remove docker  docker-common  docker-selinux docker-engine
+yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
 ```
 - Use the following command to set up the stable repository. You always need the stable repository, even if you want to install builds from the edge or test repositories as well.
 
