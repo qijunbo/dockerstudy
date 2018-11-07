@@ -1,4 +1,4 @@
-Dokcer 镜像开发人员学习手册
+ElasticSearch 镜像使用手册
 ==
 
 日志管理用于记录日志, 并提供全文检索. 本方案采用Elasticsearch全文搜索引擎.
@@ -12,14 +12,29 @@ Dokcer 镜像开发人员学习手册
 
 - 启动服务
 
+5.6.12-alpine, 5.6-alpine, 5-alpine
+
 运行elasticsearch官方提供的Docker镜像.
 ```
 mkdir esdata
-docker run --name elastic -d -v "$PWD/esdata":/usr/share/elasticsearch/data -p 9200:9200 elasticsearch
+docker run --name elastic -d -v "$PWD/esdata":/usr/share/elasticsearch/data -p 9200:9200 elasticsearch:5-alpine
 
 或者
 mkdir -p /opt/logger/esdata
-docker run --name elastic -d -v "/opt/logger/esdata":/usr/share/elasticsearch/data -p 9200:9200 elasticsearch
+docker run --name elastic -d -v "/opt/logger/esdata":/usr/share/elasticsearch/data -p 9200:9200 elasticsearch:5-alpine
+```
+bug
+==
+elasticsearch  6.4.2   这个版本存在一个bug,  就是使用 -v 指令把外部文件夹挂在到容器上之后, 
+会出现容器对这个文件夹没有写权限的情况,  因此外部创建的文件夹必须用 chmod 777 开放所有写权限.
+
+```
+mkdir esdata
+docker stop  elasticsearch
+docker rm  elasticsearch
+chmod 777 esdata 
+docker run -d --name elasticsearch  -v "$(pwd)/esdata":/usr/share/elasticsearch/data -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.4.2  
+docker ps -a |grep elastic
 ```
 
 - 测试 
