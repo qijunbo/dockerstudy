@@ -25,7 +25,7 @@ services:
 #    image: adminer:4.6
     restart: always
     environment:
-      PMA_HOST: db
+      PMA_HOST: 172.19.58.226
     ports:
       - 8822:80
 

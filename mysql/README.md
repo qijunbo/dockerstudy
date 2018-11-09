@@ -218,7 +218,46 @@ services:
     ports:
       - 8080:8080
 ```
+Run docker stack deploy -c docker-compose.yml mysql (or docker-compose -f docker-compose.yml up -d), wait for it to initialize completely, and visit http://swarm-ip:8080, http://localhost:8080, or http://host-ip:8080 (as appropriate).
 
+- phpmyadmin
+
+ Another mysql admin web tool is also cool, saying phpmyadmin , it looks prettier, but you need specify the host ip,  because it cannot recoginized the container name properly.
+
+```yml
+
+version: '3.4'
+networks:
+  webnet:
+    driver: bridge
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysqldb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker.cnf:/etc/my.cnf
+    networks:
+      - webnet
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: deeplove
+      MYSQL_DATABASE: product
+      MYSQL_USER: product
+      MYSQL_PASSWORD: sunway123#
+  adminer:
+    image: phpmyadmin/phpmyadmin:4.7
+#    image: adminer:4.6
+    restart: always
+    environment:
+      PMA_HOST: 172.19.58.226
+    ports:
+      - 8822:80
+
+```
 
 # How to use offical MYSQL  docker image
 
