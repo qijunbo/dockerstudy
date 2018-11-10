@@ -34,8 +34,9 @@ flush privileges;
 
 8.输入select user,host,password from user;   来查看账户信息。
 
-9.更改root密码，输入update user set password=password('becareful') where user='root' and host='localhost';
-
+9.更改root密码，输入update user set password=password('becareful') where user='root' and host='%';
+set password for 'jeesite'@'%' = PASSWORD('becareful');
+ 
 10.再次查看账户信息，select user,host,password from user;   可以看到密码已被修改。
 
 11.退出命令行，重启mysql数据库，用新密码尝试登录。
