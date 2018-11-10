@@ -9,14 +9,14 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /opt/limsst/mysql/data:/var/lib/mysql
-      - ./config/mysql/initsql/:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./docker.cnf:/etc/my.cnf
     networks:
       - webnet
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: deeplove
       MYSQL_DATABASE: product
       MYSQL_USER: product
       MYSQL_PASSWORD: sunway123#
@@ -25,7 +25,7 @@ services:
 #    image: adminer:4.6
     restart: always
     environment:
-      PMA_HOST: 192.168.47.129
+      PMA_HOST: 172.19.58.226
     ports:
       - 8822:80
 

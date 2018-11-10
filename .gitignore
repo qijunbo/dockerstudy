@@ -2,4 +2,4 @@
 *.war
 **/.gradle/
 **/bin/
-
+mysql/data/

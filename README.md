@@ -234,9 +234,9 @@ $ git branch
 ```
 $ git checkout -b 本地分支名x origin/远程分支名x 
 ```
-4. 切换到master分支
+4. 切换到 another 分支(前提是已经使用上面一步， 创建了本地分支 another)
 ```
-$ git checkout master 
+$ git checkout another 
 ```
 
 5. 创建/删除本地分支
