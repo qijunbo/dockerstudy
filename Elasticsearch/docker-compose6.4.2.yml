@@ -1,0 +1,22 @@
+version: '2.2'
+services:
+  elasticsearch:
+    image: elasticsearch:6.4.2
+    container_name: elasticsearch
+    environment:
+      - discovery_type: single-node
+    volumes:
+      - ./esdata:/usr/share/elasticsearch/data
+      - ./ik:/usr/share/elasticsearch/plugins/ik
+    ports:
+      - 9200:9200
+    networks:
+      - esnet
+  kibana:
+    image: kibana:6.4.2
+    environment:
+      SERVER_NAME: elasticsearch
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+networks:
+  esnet:
+    driver: bridge
