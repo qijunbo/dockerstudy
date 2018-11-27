@@ -1,13 +1,22 @@
 Greenplum
 ==
 
-这个不行, 跑不通 
+- 这个不行, 跑不通 
 ```
 docker run -it -p 5432:5432 --hostname=db_master_1 --name gpdb chadongstad/greenplum-docker bash
 ```
 
-用 docker-compose up -d 启用下面那个版本.
+- 用 docker-compose up -d 启用下面那个版本.
 
+### 测试连通性
+
+- [驱动下载页面](https://jdbc.postgresql.org/download.html)  [[42.2.5]](https://jdbc.postgresql.org/download/postgresql-42.2.5.jre6.jar)
+
+
+
+- port 5432 
+
+- user/pass is gpadmin/dataroad
 
 ```
 psql mydb
