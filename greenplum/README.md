@@ -43,7 +43,15 @@ Reference:
 
 裸机安装指南:
 https://yq.aliyun.com/articles/609855
+
 https://yq.aliyun.com/articles/585391
+
+添加/删除 Standby 节点
+
+https://yq.aliyun.com/articles/226
+
+http://yq.aliyun.com/articles/177
+
 
 配置文件资源:
 https://github.com/dbbaskette/gpdb-docker
