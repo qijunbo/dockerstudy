@@ -1,0 +1,26 @@
+version: '3.4'
+networks:
+    webnet:
+        driver: bridge
+services:
+    webapp:
+        build: .
+        image: qijunbo/jdk:8
+        restart: always
+        environment:
+            JAVA_OPTS: -server -Xms256m -Xmx1024m -XX:MaxPermSize=256m -Duser.timezone=Asia/Shanghai
+        volumes:
+            - ./app.jar:/app/app.jar
+        depends_on:
+            - db
+    nginx:
+        image: nginx:1.15.0-alpine
+        restart: always
+        ports:
+            - "8083:80"
+        volumes:
+            - ./mdm8:/www
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - db
+

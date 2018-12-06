@@ -6,6 +6,6 @@ if [ -z "${version}" ]; then
 fi
 
 docker login --username=junboqi@foxmail.com registry.cn-hangzhou.aliyuncs.com
-docker tag qijunbo/jdk:${version} registry.cn-hangzhou.aliyuncs.com/qijunbo/jdk:${version}
-docker push registry.cn-hangzhou.aliyuncs.com/qijunbo/jdk:${version}
+docker tag sunway/openjdk:${version} registry.cn-hangzhou.aliyuncs.com/qijunbo/openjdk:${version}
+docker push registry.cn-hangzhou.aliyuncs.com/qijunbo/openjdk:${version}
 
