@@ -22,7 +22,7 @@ networks:
         driver: bridge
 services:
     webapp:
-        image: registry.cn-qingdao.aliyuncs.com/qijunbo/jdk:8
+        image: registry.cn-hangzhou.aliyuncs.com/qijunbo/jdk:8
         ports:
             - 8080:80
         restart: always
@@ -56,6 +56,8 @@ ENTRYPOINT docker-entrypoint.sh
 ### 使用现成的docker image:
 
 > registry.cn-qingdao.aliyuncs.com/qijunbo/jdk:8
+> registry.cn-hangzhou.aliyuncs.com/qijunbo/jdk:8  [OK]
+> registry.cn-shanghai.aliyuncs.com/qijunbo/scheduler
 
 ``` 
 docker run --name you-app-name  \
