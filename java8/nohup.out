@@ -1,0 +1,12 @@
+The push refers to a repository [registry.cn-hangzhou.aliyuncs.com/qijunbo/jdk]
+795a22e66d97: Preparing
+5cb9d2b1f618: Preparing
+5e8d95608448: Preparing
+cd717dbfedee: Preparing
+dbbd98341870: Preparing
+bcc97fbfc9e1: Preparing
+bcc97fbfc9e1: Waiting
+5cb9d2b1f618: Layer already exists
+795a22e66d97: Layer already exists
+5e8d95608448: Layer already exists
+bcc97fbfc9e1: Layer already exists
