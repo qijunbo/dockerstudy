@@ -13,6 +13,6 @@ services:
             JAVA_OPTS: -server -Xms256m -Xmx1024m -XX:MaxPermSize=256m -Duser.timezone=Asia/Shanghai
         volumes:
             - ./app.jar:/app/webapp.jar
-    networks:
-      - webnet
+        networks:
+            - webnet
 
