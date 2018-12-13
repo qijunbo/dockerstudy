@@ -56,7 +56,9 @@ ENTRYPOINT docker-entrypoint.sh
 ### 使用现成的docker image:
 
 > registry.cn-qingdao.aliyuncs.com/qijunbo/jdk:8
+
 > registry.cn-hangzhou.aliyuncs.com/qijunbo/jdk:8  [OK]
+
 > registry.cn-shanghai.aliyuncs.com/qijunbo/scheduler
 
 ``` 
