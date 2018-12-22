@@ -17,6 +17,18 @@ WordPress是基于PHP和MySQL的开源内容管理系统（CMS）。这是一个
 docker swarm init --advertise-addr $(hostname -i)
 ```
 
+> $(hostname -i)  这个指令在CentOS 7 上面已经不能正确的获取ip地址了.
+
+可以用下面的指令获取ip
+
+```
+export ipaddr=`ip a show eth0 | grep inet  | awk '{ print $2}'`
+echo ${ipaddr%/*}
+```
+
+
+
+
 该节点成为主节点。输出显示一个命令，将一个工作节点添加到这个群中，如下所示：
 
 ```
