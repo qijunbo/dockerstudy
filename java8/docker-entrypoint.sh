@@ -1,13 +1,12 @@
 #!/bin/sh
 #set -e
 
-
+jarfile=`ls *jar`
 if [ -x "/init.d/start.sh" ]; then
     echo `ls -lh /init.d`
     /init.d/start.sh
 
 elif  [ -f "$jarfile" ]; then
-    jarfile=`ls *jar`
     echo $jarfile
     java  $JAVA_OPTS -jar  ${jarfile}
 fi
