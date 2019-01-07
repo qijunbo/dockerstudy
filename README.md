@@ -219,6 +219,31 @@ git remote add origin git@github.com:qijunbo/cos.git
 git push -u origin master
 ```
 
+
+回滚单个文件
+
+```
+步骤一：
+
+查看要回退文件的历史记录
+
+ git log --oneline --  a.txt
+
+
+
+比方说，这是我们需要回退到merge trunk的状态
+
+其版本sha1为 120a893
+
+
+使用reset命令，默认是 --soft
+
+git reset 120a893  --   a.txt
+
+```
+
+
+
 1. 查看远程分支
 ```
 $ git branch -r 
