@@ -271,6 +271,23 @@ git branch test
 git branch -d  test
 ```
 
+### 在多个分支上来回切换
+
+```
+脱离当前分支, 切到 stack 分支上去
+git branch  stack
+git checkout stack
+git checkout .
+git pull 
+git pull .
+
+保存修改, 提交到 stack分支上去
+
+git add . -all
+git commit -m "some message"
+git push -u origin stack
+```
+
 
 知识扩展：
 --
