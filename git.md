@@ -37,7 +37,11 @@ git add  folder/*
 git add . --all
 
 取消欲提交的文件, 但是不清除修改, 还留着那些变动.
-git rm --cached  file
+git reset HEAD <file>...  撤出暂存区
+
+使用 "git checkout -- <file>..." 丢弃工作区的改动
+ 
+
 ```
 
 ### 提交已暂存的文件
