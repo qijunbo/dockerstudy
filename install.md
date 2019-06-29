@@ -129,9 +129,11 @@ vim /etc/docker/daemon.json
   "registry-mirrors": ["https://q51d5nz8.mirror.aliyuncs.com"]
 }
 ```
-
+然后重启docker服务生效
+```
 sudo systemctl daemon-reload
 sudo service docker restart	
+```
 
 ### 阿里官方做法		  
 
