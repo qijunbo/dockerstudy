@@ -17,6 +17,16 @@ WordPress是基于PHP和MySQL的开源内容管理系统（CMS）。这是一个
 docker swarm init --advertise-addr $(hostname -i)
 ```
 
+> $(hostname -i)  这个指令在CentOS 7 上面已经不能正确的获取ip地址了.
+
+可以用下面的指令获取ip
+
+```
+export ipaddr=`ip a show eth0 | grep inet  | awk '{ print $2}'`
+echo ${ipaddr%/*}
+```
+ 
+
 该节点成为主节点。输出显示一个命令，将一个工作节点添加到这个群中，如下所示：
 
 ```
@@ -35,7 +45,25 @@ ons.
 
 以上令牌ID对于每个群集模式群集都是唯一的，因此可能会因您的设置而有所不同。从上面的输出中，复制连接命令（注意换行符）。
 
+> 插曲, 如果你防火墙没有开放相关端口, 请先关闭.
+```
+systemctl stop firewalld.service
+systemctl disable firewalld.service
+```
+
+>当然, 最好的方法是[配置防火墙规则](https://stackoverflow.com/questions/43370865/fail-join-node-to-docker-swarm)
+
+```
+firewall-cmd --add-port=2376/tcp --permanent
+firewall-cmd --add-port=2377/tcp --permanent
+firewall-cmd --add-port=7946/tcp --permanent
+firewall-cmd --add-port=7946/udp --permanent
+firewall-cmd --add-port=4789/udp --permanen
+```
+
+
 接下来，打开新的实例并粘贴下面的命令。这应该将新节点加入到群集模式群集中，并且这个新节点成为工作节点。就我而言，这个命令看起来像这样：
+
 
 ```
 docker swarm join \

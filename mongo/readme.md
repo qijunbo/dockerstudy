@@ -76,3 +76,9 @@ services:
     image: mongo
     command: --smallfiles
 ```
+
+Reference for Java developers
+==
+
+https://www.jianshu.com/p/fe8e16f09fcd
+

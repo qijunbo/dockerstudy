@@ -149,3 +149,41 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 
 ```
+
+### 改变docker 默认保存位置
+
+Reference: [参考](https://stackoverflow.com/questions/32070113/how-do-i-change-the-default-docker-container-location)
+
+Docker下载的镜像, 容器的默认保存目录:
+> Default is /var/lib/docker.
+
+有时候Linux系统盘默认分配的太小, 需要把docker的工作目录改到其它地方:
+
+ 
+Ensure docker stopped (or not started in the first place, e.g. if you've just installed it)
+
+(e.g. as root user):
+```
+systemctl stop docker
+```
+(or you can sudo systemctl stop docker if not root but your user is a sudo-er, i.e. belongs to the sudo group)
+
+By default, the daemon.json file does not exist, because it is optional - it is added to override the defaults. (Reference - see Answer to: Where's docker's deamon.json? (missing) )
+
+So new installs of docker and those setups that haven't ever modified it, won't have it, so create it:
+
+```
+vi /etc/docker/daemon.json
+# And add the following to tell docker to put all its files in this folder, e.g:
+
+{
+  "graph":"/mnt/cryptfs/docker"
+}
+
+```
+
+然后重启docker
+```
+systemctl daemon-reload
+systemctl start docker
+```

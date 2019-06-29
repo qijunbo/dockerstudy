@@ -4,6 +4,7 @@ RUN rpm -ivh jdk-8u151-linux-x64.rpm
 RUN rm -f jdk-8u151-linux-x64.rpm
 ENV JAVA_OPTS=""
 VOLUME /app
+VOLUME /init.d 
 WORKDIR /app
 EXPOSE 80 8080 443
 COPY  docker-entrypoint.sh /bin/
